@@ -10,6 +10,7 @@ import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
@@ -27,6 +28,7 @@ public class MainActivity extends Activity {
     private UsbDeviceConnection connection;
     private UsbSerialDevice serialDevice;
     private String buffer = "";
+    private ImageView image;
 
     private UsbSerialInterface.UsbReadCallback callback = new UsbSerialInterface.UsbReadCallback() {
         @Override
@@ -69,6 +71,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         usbManager = getSystemService(UsbManager.class);
+        setContentView(R.layout.activity_main);
+        image = (ImageView) findViewById(R.id.mainImage);
+        onSerialDataReceived("");
 
         // Detach events are sent as a system-wide broadcast
         IntentFilter filter = new IntentFilter(UsbManager.ACTION_USB_DEVICE_DETACHED);
@@ -127,6 +132,8 @@ public class MainActivity extends Activity {
     private void onSerialDataReceived(String data) {
         // Add whatever you want here
         Log.i(TAG, "Serial data received: " + data);
+        NfcObject nfcObject = NfcObject.findByTag(data);
+        image.setImageResource(nfcObject.imageRes);
     }
 
     private void stopUsbConnection() {
