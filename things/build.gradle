@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId 'com.nilhcem.usbfun'
-        minSdkVersion 24
+        minSdkVersion 27
         targetSdkVersion rootProject.ext.sdkVersion
         versionCode 1
         versionName '1.0'
@@ -21,6 +21,6 @@ android {
 }
 
 dependencies {
-    provided 'com.google.android.things:androidthings:0.3-devpreview'
-    compile rootProject.ext.usbSerial
+    compileOnly 'com.google.android.things:androidthings:0.7-devpreview'
+    implementation rootProject.ext.usbSerial
 }

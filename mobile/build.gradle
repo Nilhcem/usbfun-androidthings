@@ -21,7 +21,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.google.android:flexbox:0.2.6'
-    compile rootProject.ext.usbSerial
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.google.android:flexbox:0.3.2'
+    implementation rootProject.ext.usbSerial
 }

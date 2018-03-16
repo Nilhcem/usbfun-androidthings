@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
+import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayout;
+import com.google.android.flexbox.JustifyContent;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
@@ -91,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initLayout() {
         FlexboxLayout layout = new FlexboxLayout(this);
-        layout.setFlexWrap(FlexboxLayout.FLEX_WRAP_WRAP);
-        layout.setJustifyContent(FlexboxLayout.JUSTIFY_CONTENT_SPACE_AROUND);
+        layout.setFlexWrap(FlexWrap.WRAP);
+        layout.setJustifyContent(JustifyContent.SPACE_AROUND);
 
         for (int i = 0; i < 12; i++) {
             Button button = new Button(this);
