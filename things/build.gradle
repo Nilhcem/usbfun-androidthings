@@ -21,6 +21,6 @@ android {
 }
 
 dependencies {
-    compileOnly 'com.google.android.things:androidthings:0.7-devpreview'
+    compileOnly 'com.google.android.things:androidthings:1.0'
     implementation rootProject.ext.usbSerial
 }
